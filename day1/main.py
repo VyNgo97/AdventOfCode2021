@@ -1,11 +1,11 @@
 import logging
+import sys
+sys.path.append("..")
 
-def read_input():
-    with open("input.txt") as file:
-        input_list = [int(line) for line in file]
-    return input_list
+from common.read_input import read_input_text
 
 def find_count_p1(data):
+    data = list(map(int, data))
     count = 0 
     curr = data[0]
     for x in range(1, len(data)):
@@ -16,6 +16,7 @@ def find_count_p1(data):
     return count
 
 def find_count_p2(data):
+    data = list(map(int, data))
     first = 0
     second = 3
     count = 0
@@ -33,5 +34,5 @@ def find_count_p2(data):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    find_count_p1(read_input())
-    find_count_p2(read_input())
+    find_count_p1(read_input_text('input.txt'))
+    find_count_p2(read_input_text('input.txt'))
